@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Line from "@/utils/Line";
 
 export function JoinSection() {
     return (
@@ -12,7 +13,7 @@ export function JoinSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    Присоединяйтесь к нам!
+                    Присоединяйтесь <p className={"w-fit inline-block"}>к нам!<Line/></p>
                 </motion.h2>
                 <motion.div
                     className="flex justify-center gap-4 mb-8"

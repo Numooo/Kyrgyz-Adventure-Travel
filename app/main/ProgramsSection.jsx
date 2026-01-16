@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Line from "@/utils/Line";
 
 const programs = [
     {
@@ -69,8 +70,8 @@ export function ProgramsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-          <span className="bg-[#FF6B6B] text-white text-xs px-4 py-1.5 rounded-full">
-            Новое
+          <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 uppercase font-semibold">
+            Афиша путешествий
           </span>
                 </motion.div>
                 <motion.h2
@@ -83,14 +84,15 @@ export function ProgramsSection() {
                     Каждая программа —
                 </motion.h2>
                 <motion.h2
-                    className="text-white text-4xl lg:text-5xl font-bold mb-16"
+                    className="text-white text-4xl flex gap-5 lg:text-5xl font-bold mb-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    новая история
+                    новая <p className={"w-fit inline-block"}>история <Line/></p>
                 </motion.h2>
+
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {programs.map((program, index) => (

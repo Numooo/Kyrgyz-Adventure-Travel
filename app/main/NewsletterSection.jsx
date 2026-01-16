@@ -15,7 +15,7 @@ export function NewsletterSection() {
         <section className="bg-[#1a1a1a] py-20 px-6">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.h2
-                    className="text-white text-4xl lg:text-5xl font-bold mb-4"
+                    className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -24,7 +24,7 @@ export function NewsletterSection() {
                     Лучшего момента не будет,
                 </motion.h2>
                 <motion.h2
-                    className="text-white text-4xl lg:text-5xl font-bold mb-8"
+                    className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-8"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Line from "@/utils/Line";
 
 export function GroupTravelSection() {
     return (
@@ -21,8 +22,7 @@ export function GroupTravelSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    Путешествия для<br />
-                    большой компании
+                    Путешествия для <br/> большой <div className="w-fit inline-block">команды <Line/></div>
                 </motion.h2>
                 <motion.p
                     className="text-white/90 text-lg mb-8 max-w-2xl mx-auto"

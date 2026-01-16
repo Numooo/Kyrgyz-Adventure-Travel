@@ -1,7 +1,8 @@
 "use client"
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Line from "@/utils/Line";
 
 const faqs = [
     {
@@ -35,7 +36,7 @@ export function FAQSection() {
 
     return (
         <section className="bg-[#1a1a1a] py-20 px-6">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <motion.div
                     className="flex items-center gap-4 mb-4"
                     initial={{ opacity: 0, x: -20 }}
@@ -43,7 +44,7 @@ export function FAQSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-          <span className="bg-[#FF6B6B] text-white text-xs px-4 py-1.5 rounded-full">
+          <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 font-semibold">
             FAQ
           </span>
                 </motion.div>
@@ -54,10 +55,10 @@ export function FAQSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    Знаем, что вас волнует
+                    Знаем, что вас <p className={"inline-block w-fit"}>волнует <Line/></p>
                 </motion.h2>
 
-                <div className="mt-12 space-y-4">
+                <div className="mt-12 space-y-1 grid grid-cols-2 gap-x-10 gap-y-4 items-start">
                     {faqs.map((faq, index) => (
                         <motion.div
                             key={index}
@@ -72,11 +73,12 @@ export function FAQSection() {
                                 className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                             >
                                 <span className="font-medium text-lg pr-4">{faq.question}</span>
-                                <ChevronDown
-                                    className={`flex-shrink-0 transition-transform duration-300 ${
-                                        openIndex === index ? 'rotate-180' : ''
+                                <Plus
+                                    className={`flex-shrink-0 bg-[#FFD84D] hover:bg-[#f15d34] rounded-full transition-transform duration-300 ${
+                                        openIndex === index ? '-rotate-45' : ''
                                     }`}
-                                    size={20}
+                                    strokeWidth={1}
+                                    size={40}
                                 />
                             </button>
                             <div

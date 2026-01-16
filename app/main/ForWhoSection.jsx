@@ -21,8 +21,8 @@ export function ForWhoSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-              <span className="bg-[#FF6B6B] text-white text-xs px-4 py-1.5 rounded-full">
-                Новое
+              <span className="bg-[#f15d34] text-white text-xs px-10 py-3 uppercase font-semibold rounded-full -rotate-4">
+                ДНК бренда
               </span>
                         </motion.div>
                         <motion.h2

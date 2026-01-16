@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Line from "@/utils/Line";
 
 export function GiftSection() {
     return (
@@ -16,7 +17,7 @@ export function GiftSection() {
                         <div className="w-full h-full bg-gradient-to-l from-yellow-400 to-transparent" />
                     </div>
 
-                    <div className="relative z-10 max-w-2xl">
+                    <div className="relative z-10 max-w-3xl">
                         <motion.h2
                             className="text-white text-4xl lg:text-5xl font-bold mb-6"
                             initial={{ opacity: 0, y: 20 }}
@@ -25,7 +26,7 @@ export function GiftSection() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             Дарите эмоции —<br />
-                            путешествие в <span className="underline decoration-[#FFD84D]">подарок</span>!
+                            путешествие в <div className="w-fit inline-block">подарок! <Line/></div>
                         </motion.h2>
                         <motion.p
                             className="text-white/80 mb-8"
