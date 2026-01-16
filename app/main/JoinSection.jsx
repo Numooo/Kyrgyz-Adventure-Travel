@@ -4,7 +4,7 @@ import Line from "@/utils/Line";
 
 export function JoinSection() {
     return (
-        <section className="bg-[#1a1a1a] py-20 px-6">
+        <section className="bg-[#1a1a1a] max-w-7xl mx-auto rounded-[50px] py-20 px-6">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.h2
                     className="text-white text-4xl lg:text-5xl font-bold mb-6"
@@ -13,7 +13,7 @@ export function JoinSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    Присоединяйтесь <p className={"w-fit inline-block"}>к нам!<Line/></p>
+                    Присоединяйтесь <div className={"w-fit inline-block"}>к нам!<Line/></div>
                 </motion.h2>
                 <motion.div
                     className="flex justify-center gap-4 mb-8"

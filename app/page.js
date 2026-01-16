@@ -13,15 +13,17 @@ import {Footer} from "@/components/Footer";
 
 export default function App() {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-black">
             <Header />
             <HeroSection />
             <ProgramsSection />
-            <ForWhoSection />
-            <JoinSection />
-            <StatsSection />
-            <PaymentSection />
-            <GiftSection />
+            <div className={"bg-white rounded-[50px] py-20"}>
+                <ForWhoSection />
+                <JoinSection />
+                <StatsSection />
+                <PaymentSection />
+                <GiftSection />
+            </div>
             <GroupTravelSection />
             <FAQSection />
             <NewsletterSection />

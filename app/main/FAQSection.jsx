@@ -55,7 +55,7 @@ export function FAQSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    Знаем, что вас <p className={"inline-block w-fit"}>волнует <Line/></p>
+                    Знаем, что вас <div className={"inline-block w-fit"}>волнует <Line/></div>
                 </motion.h2>
 
                 <div className="mt-12 space-y-1 grid grid-cols-2 gap-x-10 gap-y-4 items-start">
@@ -74,7 +74,7 @@ export function FAQSection() {
                             >
                                 <span className="font-medium text-lg pr-4">{faq.question}</span>
                                 <Plus
-                                    className={`flex-shrink-0 bg-[#FFD84D] hover:bg-[#f15d34] rounded-full transition-transform duration-300 ${
+                                    className={`flex-shrink-0 bg-[#FFD84D] hover:bg-[#f15d34] hover:text-white rounded-full transition-transform duration-300 ${
                                         openIndex === index ? '-rotate-45' : ''
                                     }`}
                                     strokeWidth={1}

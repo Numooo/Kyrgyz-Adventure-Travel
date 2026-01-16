@@ -96,7 +96,7 @@ export function ProgramsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    новая <p className={"w-fit inline-block"}>история <Line/></p>
+                    новая <div className={"w-fit inline-block"}>история <Line/></div>
                 </motion.h2>
 
 

@@ -49,7 +49,7 @@ export function Header() {
                     isScrolled ? 'translate-y-0' : '-translate-y-full'
                 }`}
             >
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
+                <div className="max-w-[1400px] mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <img src="/logo.svg" className={"w-20 grayscale brightness-0"} alt=""/>
                     </div>
