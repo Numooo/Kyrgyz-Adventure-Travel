@@ -10,7 +10,7 @@ const programs = [
         description: 'Архипелаг, расположенный за полярным кругом в Норвежском море. Туристы приезжают сюда, чтобы насладиться великолепными пейзажами, увидеть северное сияние и полуночное солнце.',
         image: 'https://images.unsplash.com/photo-1676981405728-e5ec4e112a67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaWtpbmclMjBtb3VudGFpbnMlMjBhZHZlbnR1cmV8ZW58MXx8fHwxNzY4NDgwNTM1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
         badge: '14 дней',
-        preview: ["https://kyrgyz-adventure-travel.s3.amazonaws.com/banners/20220828_110448.jpg?AWSAccessKeyId=AKIAXQIQAOVSNHITNP5V&Signature=YznJEWpH%2F3UXeyLkWb4KiznNKIE%3D&Expires=1768560577", "https://www.kg-tour.com/assets/%D1%81%D0%B5%D0%B3%D0%B8%D0%B7.jpg"],
+        preview: ["https://kappa.lol/hCN8rY", "https://www.kg-tour.com/assets/%D1%81%D0%B5%D0%B3%D0%B8%D0%B7.jpg"],
         price: 'от 150 000 ₽',
     },
     {
