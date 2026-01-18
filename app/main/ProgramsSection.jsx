@@ -1,6 +1,7 @@
 "use client"
 import { motion } from 'framer-motion';
 import Line from "@/utils/Line";
+import Link from "next/link"
 
 const programs = [
     {
@@ -76,9 +77,9 @@ export function ProgramsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-          <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 uppercase font-semibold">
-            Афиша путешествий
-          </span>
+                    <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 uppercase font-semibold">
+                        Афиша путешествий
+                    </span>
                 </motion.div>
                 <motion.h2
                     className="text-white text-4xl lg:text-5xl font-bold mb-4"
@@ -96,7 +97,7 @@ export function ProgramsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    новая <div className={"w-fit inline-block"}>история <Line/></div>
+                    новая <div className={"w-fit inline-block"}>история <Line /></div>
                 </motion.h2>
 
 
@@ -124,9 +125,9 @@ export function ProgramsSection() {
                                     />
                                 </div>
                                 <div className="absolute top-4 left-4">
-                  <span className="bg-[#FFD84D] text-black text-sm px-4 py-1.5 rounded-full font-medium">
-                    {program.badge}
-                  </span>
+                                    <span className="bg-[#FFD84D] text-black text-sm px-4 py-1.5 rounded-full font-medium">
+                                        {program.badge}
+                                    </span>
                                 </div>
                             </div>
                             <div className="p-6">
@@ -137,9 +138,9 @@ export function ProgramsSection() {
                                 </p>
                                 <div className="flex items-center justify-between">
                                     <span className="text-xl font-bold">{program.price}</span>
-                                    <button className="text-sm font-medium hover:underline flex items-center gap-2">
+                                    <Link href={`/tour/${program.id}`} className="text-sm font-medium hover:underline flex items-center gap-2">
                                         Подробнее →
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

@@ -1,88 +1,100 @@
-"use client"
-import { motion } from 'framer-motion';
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const cards = [
+    {
+        title: "6 лет",
+        desc: "создаем эксклюзивные авторские программы",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    },
+    {
+        title: "Более 1000",
+        desc: "путешественников доверяют нам каждый год",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    },
+    {
+        title: "35 направлений",
+        desc: "мы открыли за время работы проекта",
+        image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+    },
+    {
+        title: "63 000 человек",
+        desc: "вступило в наше travel-комьюнити",
+        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+    },
+];
 
 export function StatsSection() {
-    const stats = [
-        {
-            number: '12 лет',
-            label: 'на рынке',
-            icon: '🌍',
-        },
-        {
-            number: 'Более 1000',
-            label: 'успешных туров',
-            icon: '✈️',
-        },
-        {
-            number: '34 направления',
-            label: 'по всему миру',
-            icon: '📍',
-        },
-        {
-            number: '63 000 человек',
-            label: 'довольных клиентов',
-            icon: '⭐',
-        },
-    ];
+    const sectionRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"],
+    });
 
     return (
-        <section className="bg-white py-20 px-6">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    className="flex items-center gap-4 mb-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-          <span className="bg-[#f15d34] text-white uppercase font-semibold text-xs px-10 py-3 rounded-full -rotate-4">
-            reasons to believe
-          </span>
-                </motion.div>
-                <motion.h2
-                    className="text-4xl lg:text-5xl font-bold mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                >
-                    Почувствуйте
-                </motion.h2>
-                <motion.h2
-                    className="text-4xl lg:text-5xl font-bold mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                    себя особенным
-                </motion.h2>
+        <section ref={sectionRef} className="relative bg-white py-32">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 px-6">
+                {/* LEFT */}
+                <div className="sticky top-32 h-fit">
+                    <span className="inline-block bg-[#f15d34] text-white uppercase text-xs font-semibold px-8 py-3 rounded-full mb-6 -rotate-3">
+                        reasons to believe
+                    </span>
 
-                <motion.p
-                    className="text-gray-600 mb-12 max-w-2xl"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                    Nesin Travel предлагает уникальные программы путешествий с индивидуальным подходом к каждому клиенту. Мы создаем незабываемые впечатления и помогаем открывать новые горизонты.
-                </motion.p>
+                    <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                        Почувствуйте <br /> себя особенным
+                    </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {stats.map((stat, index) => (
-                        <motion.div
-                            key={index}
-                            className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 hover:shadow-lg transition-shadow"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <div className="text-4xl mb-4">{stat.icon}</div>
-                            <div className="text-3xl font-bold mb-2">{stat.number}</div>
-                            <div className="text-gray-600">{stat.label}</div>
-                        </motion.div>
-                    ))}
+                    <p className="text-gray-600 max-w-md">
+                        Наша команда окружает заботой и любовью каждого участника
+                        и никогда не останавливается на достигнутом.
+                    </p>
+                </div>
+
+                {/* RIGHT */}
+                <div className="relative h-[220vh]">
+                    {cards.map((card, index) => {
+                        const start = index * 0.2;
+                        const end = start + 0.4;
+
+                        const y = useTransform(
+                            scrollYProgress,
+                            [start, end],
+                            [120, 0]
+                        );
+
+                        const scale = useTransform(
+                            scrollYProgress,
+                            [start, end],
+                            [0.95, 1]
+                        );
+
+                        return (
+                            <motion.div
+                                key={index}
+                                style={{ y, scale }}
+                                className="sticky top-24 mb-12 rounded-[32px] overflow-hidden shadow-xl"
+                            >
+                                <div
+                                    className="h-[320px] flex flex-col justify-end p-8 text-white"
+                                    style={{
+                                        backgroundImage: `url(${card.image})`,
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                    }}
+                                >
+                                    <h3 className="text-3xl font-bold mb-2">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm opacity-90">
+                                        {card.desc}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
