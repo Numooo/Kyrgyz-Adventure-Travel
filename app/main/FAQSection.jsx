@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Line from "@/utils/Line";
+import Rotate from "@/utils/Rotate";
 
 const faqs = [
     {
@@ -44,9 +45,7 @@ export function FAQSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-          <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 font-semibold">
-            FAQ
-          </span>
+                    <Rotate>FAQ</Rotate>
                 </motion.div>
                 <motion.h2
                     className="text-white text-4xl lg:text-5xl font-bold mb-4"

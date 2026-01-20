@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Rotate from "@/utils/Rotate";
 
 const cards = [
     {
@@ -39,11 +40,9 @@ export function StatsSection() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 px-6">
                 {/* LEFT */}
                 <div className="sticky top-32 h-fit">
-                    <span className="inline-block bg-[#f15d34] text-white uppercase text-xs font-semibold px-8 py-3 rounded-full mb-6 -rotate-3">
-                        reasons to believe
-                    </span>
+                    <Rotate>reasons to believe</Rotate>
 
-                    <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                    <h2 className="text-4xl lg:text-5xl font-bold leading-tight my-6">
                         Почувствуйте <br /> себя особенным
                     </h2>
 
@@ -54,41 +53,36 @@ export function StatsSection() {
                 </div>
 
                 {/* RIGHT */}
-                <div className="relative h-[220vh]">
+                <div className="relative h-[180vh]">
                     {cards.map((card, index) => {
-                        const start = index * 0.2;
-                        const end = start + 0.4;
+                        const start = index / cards.length;
+                        const end = (index + 1) / cards.length;
 
                         const y = useTransform(
                             scrollYProgress,
                             [start, end],
-                            [120, 0]
-                        );
-
-                        const scale = useTransform(
-                            scrollYProgress,
-                            [start, end],
-                            [0.95, 1]
+                            [0, -100 + index * 30],
                         );
 
                         return (
                             <motion.div
                                 key={index}
-                                style={{ y, scale }}
-                                className="sticky top-24 mb-12 rounded-[32px] overflow-hidden shadow-xl"
+                                style={{ y, zIndex: index }}
+                                className="sticky top-60 mb-5 rounded-[32px] overflow-hidden shadow-xl"
                             >
                                 <div
-                                    className="h-[320px] flex flex-col justify-end p-8 text-white"
+                                    className="h-50 flex flex-col relative justify-end p-8 text-white"
                                     style={{
                                         backgroundImage: `url(${card.image})`,
                                         backgroundSize: "cover",
                                         backgroundPosition: "center",
                                     }}
                                 >
-                                    <h3 className="text-3xl font-bold mb-2">
+                                    <div className="absolute inset-0 bg-black/30" />
+                                    <h3 className="text-3xl relative font-bold mb-2">
                                         {card.title}
                                     </h3>
-                                    <p className="text-sm opacity-90">
+                                    <p className="text-sm relative opacity-90">
                                         {card.desc}
                                     </p>
                                 </div>

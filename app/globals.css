@@ -4,3 +4,6 @@
 *{
     font-family: "Unbounded", sans-serif;
 }
+button, a{
+    cursor: pointer;
+}

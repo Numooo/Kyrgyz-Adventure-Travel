@@ -1,5 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
+import Rotate from "@/utils/Rotate";
 
 export function ForWhoSection() {
     const images = [
@@ -21,9 +22,7 @@ export function ForWhoSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-              <span className="bg-[#f15d34] text-white text-xs px-10 py-3 uppercase font-semibold rounded-full -rotate-4">
-                ДНК бренда
-              </span>
+                            <Rotate>ДНК бренда</Rotate>
                         </motion.div>
                         <motion.h2
                             className="text-4xl lg:text-5xl font-bold mb-6"

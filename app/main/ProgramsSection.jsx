@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Line from "@/utils/Line";
 import Link from "next/link"
+import Rotate from "@/utils/Rotate";
 
 const programs = [
     {
@@ -66,7 +67,7 @@ const programs = [
     },
 ];
 
-export function ProgramsSection() {
+function ProgramsSection() {
     return (
         <section className="bg-[#1a1a1a] py-20 px-6">
             <div className="max-w-7xl mx-auto">
@@ -77,9 +78,7 @@ export function ProgramsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="bg-[#f15d34] text-white text-xs px-10 py-3 rounded-full -rotate-4 uppercase font-semibold">
-                        Афиша путешествий
-                    </span>
+                    <Rotate>Афиша путешествий</Rotate>
                 </motion.div>
                 <motion.h2
                     className="text-white text-4xl lg:text-5xl font-bold mb-4"
@@ -165,3 +164,5 @@ export function ProgramsSection() {
         </section>
     );
 }
+
+export default ProgramsSection
