@@ -3,6 +3,7 @@ import {motion} from 'framer-motion';
 import Line from "@/utils/Line";
 import { useEffect, useState } from "react";
 import {Gift} from "lucide-react";
+import ScrollTags from "@/components/ScrollTags";
 
 export function GiftSection() {
     const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -34,7 +35,7 @@ export function GiftSection() {
     }, []);
 
     return (
-        <section className="bg-[#222222] py-20 px-6 max-w-7xl mx-auto rounded-[50px] relative">
+        <section className="bg-[#222222] py-20 px-6 max-w-7xl mx-auto rounded-[50px] relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     className="max-w-6xl mx-auto"
@@ -104,24 +105,13 @@ export function GiftSection() {
                             }}
                         />
                         <motion.div
-                            className="flex gap-8 text-white/60 text-sm"
+                            className="flex gap-8 text-sm"
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
                             viewport={{once: true}}
                             transition={{duration: 0.6, delay: 0.5}}
                         >
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-[#FFD84D] rounded-full"/>
-                                <span>Любой номинал</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-[#FFD84D] rounded-full"/>
-                                <span>Срок действия 1 год</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 bg-[#FFD84D] rounded-full"/>
-                                <span>Электронный формат</span>
-                            </div>
+                            <ScrollTags/>
                         </motion.div>
                     </div>
                 </motion.div>

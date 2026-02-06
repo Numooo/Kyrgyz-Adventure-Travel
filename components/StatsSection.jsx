@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Rotate from "@/utils/Rotate";
+import useViewportWidth from "@/hooks/useViewportWidth";
 
 const cards = [
     {
@@ -29,6 +30,7 @@ const cards = [
 
 export function StatsSection() {
     const sectionRef = useRef(null);
+    const viewportWidth = useViewportWidth();
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -52,22 +54,40 @@ export function StatsSection() {
                     </p>
                 </div>
 
-                {/* RIGHT */}
-                <div className="relative h-[180vh]">
+                <div className="relative">
                     {cards.map((card, index) => {
                         const start = index / cards.length;
                         const end = (index + 1) / cards.length;
 
+                        const baseWidth = Math.min(viewportWidth * 0.6, 600);
+                        const maxShrink = baseWidth * 0.07;
+                        const step = baseWidth * 0.02;
+
+                        const shrinkAmount = Math.max(0, maxShrink - index * step);
+
+                        const width = useTransform(
+                            scrollYProgress,
+                            [start, end],
+                            [baseWidth, baseWidth - shrinkAmount]
+                        );
+
+                        const x = useTransform(width, (w) => (baseWidth - w) / 2);
+
                         const y = useTransform(
                             scrollYProgress,
                             [start, end],
-                            [0, -100 + index * 30],
+                            [50, -baseWidth * 0.15 + index * baseWidth * 0.05]
                         );
 
                         return (
                             <motion.div
                                 key={index}
-                                style={{ y, zIndex: index }}
+                                style={{
+                                    y,
+                                    x,
+                                    width,
+                                    zIndex: index,
+                                }}
                                 className="sticky top-60 mb-5 rounded-[32px] overflow-hidden shadow-xl"
                             >
                                 <div

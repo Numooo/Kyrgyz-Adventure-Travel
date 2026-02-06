@@ -1,5 +1,5 @@
 "use client"
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import Line from "@/utils/Line";
 import Link from "next/link"
 import Rotate from "@/utils/Rotate";
@@ -73,90 +73,94 @@ function ProgramsSection() {
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     className="flex items-center gap-4 mb-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    initial={{opacity: 0, x: -20}}
+                    whileInView={{opacity: 1, x: 0}}
+                    viewport={{once: true}}
+                    transition={{duration: 0.6}}
                 >
                     <Rotate>Афиша путешествий</Rotate>
                 </motion.div>
                 <motion.h2
                     className="text-white text-4xl lg:text-5xl font-bold mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true}}
+                    transition={{duration: 0.6, delay: 0.1}}
                 >
                     Каждая программа —
                 </motion.h2>
                 <motion.h2
                     className="text-white text-4xl flex gap-5 lg:text-5xl font-bold mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true}}
+                    transition={{duration: 0.6, delay: 0.2}}
                 >
-                    новая <div className={"w-fit inline-block"}>история <Line /></div>
+                    новая <div className={"w-fit inline-block"}>история <Line/></div>
                 </motion.h2>
 
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {programs.map((program, index) => (
-                        <motion.div
-                            key={program.id}
-                            className="bg-white rounded-3xl overflow-hidden hover:transform hover:scale-[1.02] transition-transform duration-300"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <div className="relative h-64">
-                                <div className="relative w-full h-full overflow-hidden group">
-                                    <img
-                                        src={program.preview[0]}
-                                        alt={program.title}
-                                        className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                                    />
-                                    <img
-                                        src={program.preview[1]}
-                                        alt={program.title}
-                                        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                                    />
-                                </div>
-                                <div className="absolute top-4 left-4">
-                                    <span className="bg-[#FFD84D] text-black text-sm px-4 py-1.5 rounded-full font-medium">
+                <div className="overflow-x-auto">
+                    <div className="md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex gap-6 mb-12">
+                        {programs.map((program, index) => (
+                            <div
+                                data-aos="fade-right"
+                                data-aos-delay={index * 150}
+                                data-aos-duration="300"
+                                key={program.id}
+                                className="bg-white rounded-3xl w-96 min-w-80 overflow-hidden hover:transform hover:scale-[1.02] transition-transform duration-300"
+                            >
+                                <div className="relative h-64">
+                                    <div className="relative w-full h-full overflow-hidden group">
+                                        <img
+                                            src={program.preview[0]}
+                                            alt={program.title}
+                                            className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                                        />
+                                        <img
+                                            src={program.preview[1]}
+                                            alt={program.title}
+                                            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                                        />
+                                    </div>
+                                    <div className="absolute top-4 left-4">
+                                    <span
+                                        className="bg-[#FFD84D] text-black text-sm px-4 py-1.5 rounded-full font-medium">
                                         {program.badge}
                                     </span>
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-2xl font-bold mb-1">{program.title}</h3>
+                                    <p className="text-gray-500 text-sm mb-4">{program.subtitle}</p>
+                                    <p className="text-gray-700 text-sm mb-6 line-clamp-4">
+                                        {program.description}
+                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-xl font-bold">{program.price}</span>
+                                        <Link href={`/tour/${program.id}`}
+                                              className="text-sm font-medium hover:underline flex items-center gap-2">
+                                            Подробнее →
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold mb-1">{program.title}</h3>
-                                <p className="text-gray-500 text-sm mb-4">{program.subtitle}</p>
-                                <p className="text-gray-700 text-sm mb-6 line-clamp-4">
-                                    {program.description}
-                                </p>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-xl font-bold">{program.price}</span>
-                                    <Link href={`/tour/${program.id}`} className="text-sm font-medium hover:underline flex items-center gap-2">
-                                        Подробнее →
-                                    </Link>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
 
                 <motion.div
                     className="flex flex-col sm:flex-row gap-4 justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true}}
+                    transition={{duration: 0.6}}
                 >
-                    <button className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-medium transition-colors">
+                    <button
+                        className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-medium transition-colors">
                         Смотреть все путешествия
                     </button>
-                    <button className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-medium transition-colors">
+                    <button
+                        className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-medium transition-colors">
                         Календарь туров
                     </button>
                 </motion.div>

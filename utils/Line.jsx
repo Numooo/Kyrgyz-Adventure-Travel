@@ -2,7 +2,7 @@ import React from 'react';
 
 const Line = () => {
     return (
-        <div className="relative w-full h-[15px]">
+        <div data-aos="fade-right" className="relative w-full h-[15px]">
             <svg
                 viewBox="0 0 540 15"
                 className="absolute inset-0 w-full h-full"
